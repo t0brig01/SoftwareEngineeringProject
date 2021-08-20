@@ -1,0 +1,84 @@
+<body class="container">
+    <div class="row justify-content-center"> 
+        <h1>Administration</h1>
+    </div>
+    <div class = "row">
+        <div class="col-sm-6 text-center"> 
+            <div class="input-group justify-content-center">
+              <h4>Administrators</h4>
+            </div>
+        </div>
+        <div class="col-sm-6 text-center"> 
+            <button type="submit" class="btn btn-outline-success" (click)="addAdmin()">Add Administrator</button>
+        </div>
+    </div>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+        <ngb-panel *ngFor="let admin of admins" title="{{admin.username}}">
+          <ng-template ngbPanelContent>
+            <div class="row justify-content-center">
+                <div class="col-sm-3 text-center">
+                    <div class="btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-secondary active">
+                          <input type="checkbox" (click)="changePassword(admin)"> Change Password
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <button type="submit" class="btn btn-outline-danger" (click)="deleteAdmin(admin)">Delete Administrator</button>
+                </div>
+            </div>
+          </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+
+    <div class = "row">
+        <div class="col-sm-6 text-center"> 
+            <div class="input-group justify-content-center">
+              <h4>Parking Lots</h4>
+            </div>
+        </div>
+        <div class="col-sm-6 text-center"> 
+            <button type="submit" class="btn btn-outline-success" (click)="addLot()">Add Parking Lot</button>
+        </div>
+    </div>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-1">
+        <ngb-panel *ngFor="let lot of parkingLots" title="{{lot.shortDesc}}">
+          <ng-template ngbPanelContent>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-3 text-center">
+                    <div class="btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-secondary active">
+                          <input type="checkbox" (click)="changeLot(lot)"> Change Lot Details
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <button type="submit" class="btn btn-outline-danger" (click)="deleteLot(lot.id)">Delete Lot</button>
+                </div>
+            </div>
+
+          </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+
+    <div class = "row">
+        <div class="col-sm-6 text-center"> 
+            <div class="input-group justify-content-center">
+              <h4>Parking Passes</h4>
+            </div>
+        </div>
+        <div class="col-sm-6 text-center"> 
+            <button type="submit" class="btn btn-outline-success" (click)="addPass()">Add Parking Pass</button>
+        </div>
+    </div>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-1">
+        <ngb-panel *ngFor="let pass of passes" title="{{pass.shortDesc}}">
+          <ng-template ngbPanelContent>
+                <div class="col-sm-3 text-center">
+                    <button type="submit" class="btn btn-outline-danger" (click)="deletePass(pass)">Delete Pass</button>
+                </div>
+          </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+</body>

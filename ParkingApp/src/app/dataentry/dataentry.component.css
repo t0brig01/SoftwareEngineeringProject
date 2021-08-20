@@ -1,0 +1,5 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+.sublinks{
+    max-height: 76px; /*76px = two items 1 is 38px*/
+    overflow: overlay;
+}

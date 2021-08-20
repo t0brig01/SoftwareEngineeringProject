@@ -1,0 +1,91 @@
+<div class="modal-header">
+    <h4 class="modal-title">Add Parking Lot</h4>
+    <button type="button" class="btn btn-lg" aria-label="Close" (click) = "cancel()"><span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body form-horizontal">
+    <div class="form-group">
+        <label class="control-label">Name</label>
+        <input type="text" class="form-control" id ="lotName" [(ngModel)] = "lot.shortDesc"/>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-6">
+                <label class="control-label">Exclusive Pass Start Time</label>
+                <div class="input-group justify-content-center">
+                    <ngb-timepicker [(ngModel)]="exPassStart" name="exPassStartTimePicker" [meridian]="meridian"></ngb-timepicker>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label class="control-label">Exclusive Pass End Time</label>
+                <div class="input-group justify-content-center">
+                    <ngb-timepicker [(ngModel)]="exPassEnd" name="exPassEndTimePicker" [meridian]="meridian"></ngb-timepicker>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-6">
+                <label class="control-label">Exclusive Pass Color</label>
+                <div class="input-group justify-content-center">
+                    <div class="btn-group w-100" ngbDropdown role="group" aria-label="Button group with nested dropdown ">
+                      <button class="btn btn-outline-secondary dropdown-toggle-split" ngbDropdownToggle> {{currentPass}} </button>
+                      <div class="dropdown-menu scrollable" ngbDropdownMenu>
+                        <option ngbDropdownItem name='passdd' *ngFor="let pass of passes" (click)="changePass(pass.shortDesc)" > {{ pass.shortDesc }} </option>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-6">
+                <label class="control-label">Any Pass Start Time</label>
+                <div class="input-group justify-content-center">
+                    <ngb-timepicker [(ngModel)]="anyPassStart" name="anyPassStartTimePicker" [meridian]="meridian"></ngb-timepicker>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label class="control-label">Public Parking Start Time</label>
+                <div class="input-group justify-content-center">
+                    <ngb-timepicker [(ngModel)]="publicPassStart" name="publicPassStartTimePicker" [meridian]="meridian"></ngb-timepicker>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Address</label>
+        <input type="text" class="form-control" id ="lotAddress" [(ngModel)] = "lot.address"/>
+    </div>
+    <div class="form-group">
+        <label class="btn btn-outline-secondary" ngbButtonLabel>
+            <input type="checkbox" name="weekendEnforcedCheckBox" [(ngModel)]="lot.weekendEnforcementFlag"> Weekend Enforcement
+        </label>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-6">
+                <label class="control-label">Latitude</label>
+                <input type="text" class="form-control" id ="latitude" [(ngModel)] = "lot.latitude"/>
+            </div>
+            <div class="col-sm-6">
+                <label class="control-label">Longitude</label>
+                <input type="text" class="form-control" id ="longitude" [(ngModel)] = "lot.longitude"/>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        
+    </div>
+</div>
+<div class="modal-footer">
+    <a class="btn btn-link" (click) = "cancel()">Cancel</a>
+    <button type="button" class="btn btn-primary" (click) = "nextButton()">Create Lot</button>
+</div>
+ 

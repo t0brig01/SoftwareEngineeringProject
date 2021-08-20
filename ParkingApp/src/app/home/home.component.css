@@ -1,0 +1,4 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+.bottom {
+    border-bottom: 1px solid #000000;
+}

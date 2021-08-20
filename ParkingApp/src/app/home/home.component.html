@@ -1,0 +1,42 @@
+<header class="bottom">
+  <div class="row m-3">
+    <h1>People Order Our Parking</h1>
+    <div class="col text-right">
+      <button class="m-3 btn btn-outline-secondary pr-5 pl-5 w-auto" (click)="loginButton()">Administrator
+        Login</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm text-center">
+      <div class="input-group justify-content-center">
+        <label for="passdd">Pass color:</label>
+        <div class="btn-group w-50 ml-5" ngbDropdown role="group" aria-label="Button group with nested dropdown ">
+          <button class="btn btn-outline-secondary dropdown-toggle-split" ngbDropdownToggle> {{currentPass.shortDesc}}
+          </button>
+          <div class="dropdown-menu scrollable" ngbDropdownMenu>
+            <option ngbDropdownItem name='passdd' *ngFor="let pass of passes" (click)="changePass(pass)">
+              {{ pass.shortDesc }} </option>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm text-center">
+      <div class="input-group justify-content-center">
+        <label for="timePicker">Arrival Time:</label>
+        <ngb-timepicker class="ml-5 mt-n5" [(ngModel)]="filterTime" name="timePicker" [meridian]="timeMeridian"
+          (ngModelChange)="onTimeChange($event)" [disabled]="inputDisabled"></ngb-timepicker>
+      </div>
+    </div>
+  </div>
+</header>
+<div id="main">
+  <div #mapContainer id="map"></div>
+  <div id="list">
+    <p>Lots:</p>
+    <ul>
+      <li *ngFor="let lot of lotList">
+        {{ lot }}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+#main {
+    width: 800x;
+    margin:0 auto;
+}
+
+#map {
+    height: 700px;
+    width: 70%;    
+    float:left
+   }
+
+#list {
+    padding-left: 5px;
+    width: 30%;
+    float: right;
+   }
